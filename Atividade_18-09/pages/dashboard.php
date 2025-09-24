@@ -60,7 +60,7 @@
                   echo "<td>" . htmlspecialchars($funcionario->getId()) . "</td>";
                   echo "<td>" . htmlspecialchars($funcionario->getNome()) . "</td>";
                   echo "<td>" . htmlspecialchars($funcionario->getCargo()) . "</td>";
-                  echo "<td>" . htmlspecialchars($funcionario->getSalario()) . "</td>";
+                  echo "<td>R$" . htmlspecialchars(number_format($funcionario->getSalario(), 2, ',', '.')) . "</td>";
                   echo "<td class='acoes'>";
                   // Botões de ação, que apontam para os endpoints do seu controlador
                   echo "<a href='../index.php?controller=funcionario&action=editar&id=" . $funcionario->getId() . "' class='editar'>Editar</a>";

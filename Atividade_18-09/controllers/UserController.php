@@ -20,7 +20,7 @@
             'email'=> $usuario->getEmail()
           ];
 
-          header("Location: ./index.php?controller=funcionario&action=listar");
+          header("Location: pages/dashboard.php");
           exit();
         }
       }

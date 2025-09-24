@@ -1,10 +1,10 @@
 <?php
 
 //1. Inclui os Controllers
-require_once 'config/session.php';
-require_once 'controllers/FuncionarioController.php';
-require_once 'controllers/UserController.php';
-require_once 'controllers/ProjectController.php';
+require_once __DIR__ . '/config/session.php';
+require_once __DIR__ . '/controllers/FuncionarioController.php';
+require_once __DIR__ . '/controllers/UserController.php';
+require_once __DIR__ . '/controllers/ProjectController.php';
 
 //2. Lê o endpoint da URL 
 $controller = $_GET['controller'] ?? 'funcionario'; // Controller padrão
@@ -34,7 +34,7 @@ if( !isset($_SESSION['user']) ) {
 
 echo "<script>console.log('Nome da classe: {$controller_class}');</script>";
 
-//. Verifica se a classe e o método existem
+//6. Verifica se a classe e o método existem
 if (class_exists($controller_class) && method_exists($controller_class, $action)) {
     echo "<script>console.log('Verificando a existência do Endpoint... OK');</script>";;
     $controller_obj = new $controller_class();
