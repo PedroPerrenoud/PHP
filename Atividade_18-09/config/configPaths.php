@@ -4,5 +4,6 @@
   define('CONTROLLER_PATH', '/PHP/Atividade_18-09/controllers/');
   define('MODELS_PATH', '/PHP/Atividade_18-09/models/');
   define('CONFIG_PATH', '/PHP/Atividade_18-09/config/');
+  define('SRC_PATH', 'PHP/Atividade_18-09/src/');
 
 ?>

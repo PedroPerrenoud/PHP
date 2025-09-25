@@ -1,0 +1,12 @@
+# Node Modules
+node_modules/
+
+# O arquivo de input do Tailwind
+# Atividade_18-09/src/input.css 
+
+# O arquivo de output (O 'Tailwind' em si, já configurado)
+Atividade_18-09/src/output.css
+
+# Configurações do editor
+.vscode/
+.idea/

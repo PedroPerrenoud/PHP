@@ -7,27 +7,54 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Funcionário</title>
+    <link rel="stylesheet" href="../src/output.css">
 </head>
-<body>
+<body class="bg-[#191825] flex items-center justify-center min-h-screen p-4">
 
-    <h1>Editar Funcionário</h1>
-    
-    <form action="<?= ROOT_PATH ?>index.php?controller=funcionario&action=atualizar" method="POST">
-        <input type="hidden" name="id" value="<?php echo htmlspecialchars($funcionario->getId()); ?>">
+    <div class="w-full max-w-md p-8 space-y-6 bg-[#1A1A1D] rounded-xl shadow-2xl shadow-[#7A1CAC]/30 border border-[#4F1C51]">
         
-        <label for="nome">Nome:</label><br>
-        <input type="text" id="nome" name="nome" value="<?php echo htmlspecialchars($funcionario->getNome()); ?>" required><br><br>
+        <h1 class="text-3xl font-bold text-[#FEFBF6] text-center tracking-widest uppercase mb-6">
+            Editar <br><span class="text-[#7A1CAC]">_Funcionário_</span>
+        </h1>
+        
+        <form action="<?= ROOT_PATH ?>index.php?controller=funcionario&action=atualizar" method="POST" class="space-y-4">
+            
+            <input type="hidden" name="id" value="<?= htmlspecialchars($funcionario->getId()); ?>">
 
-        <label for="cargo">Cargo:</label><br>
-        <input type="text" id="cargo" name="cargo" value="<?php echo htmlspecialchars($funcionario->getCargo()); ?>" required><br><br>
-        
-        <label for="salario">Salário:</label><br>
-        <input type="number" id="salario" name="salario" value="<?php echo htmlspecialchars($funcionario->getSalario()); ?>" required><br><br>
-        
-        <button type="submit">Salvar Alterações</button>
-        <a href="<?= ROOT_PATH ?>index.php?controller=funcionario&action=listar">Cancelar</a>
-    </form>
+            <div>
+                <label for="nome" class="block text-sm font-medium text-[#FBF5E5] mb-1">Nome:</label>
+                <input type="text" id="nome" name="nome" value="<?= htmlspecialchars($funcionario->getNome()); ?>" required
+                       class="w-full px-4 py-2 border-b-2 border-[#4F1C51] bg-transparent text-[#FEFBF6] placeholder-gray-500 focus:outline-none focus:border-[#7A1CAC] transition duration-300">
+            </div>
+
+            <div>
+                <label for="cargo" class="block text-sm font-medium text-[#FBF5E5] mb-1">Cargo:</label>
+                <input type="text" id="cargo" name="cargo" value="<?= htmlspecialchars($funcionario->getCargo()); ?>" required
+                       class="w-full px-4 py-2 border-b-2 border-[#4F1C51] bg-transparent text-[#FEFBF6] placeholder-gray-500 focus:outline-none focus:border-[#7A1CAC] transition duration-300">
+            </div>
+
+            <div>
+                <label for="salario" class="block text-sm font-medium text-[#FBF5E5] mb-1">Salário:</label>
+                <input type="number" step="0.01" id="salario" name="salario" value="<?= htmlspecialchars($funcionario->getSalario()); ?>" required
+                       class="w-full px-4 py-2 border-b-2 border-[#4F1C51] bg-transparent text-[#FEFBF6] placeholder-gray-500 focus:outline-none focus:border-[#7A1CAC] transition duration-300">
+            </div>
+
+            <div class="flex justify-between mt-6">
+                <button type="submit"
+                        class="px-6 py-2 bg-[#7A1CAC] text-[#FEFBF6] font-bold uppercase rounded-md hover:bg-[#4F1C51] transition duration-300 shadow-lg shadow-[#7A1CAC]/50">
+                    Salvar Alterações
+                </button>
+                <a href="<?= ROOT_PATH ?>index.php?controller=funcionario&action=listar"
+                   class="px-6 py-2 bg-gray-700 text-[#FEFBF6] font-bold uppercase rounded-md hover:bg-gray-600 transition duration-300 shadow-md">
+                    Cancelar
+                </a>
+            </div>
+
+        </form>
+
+    </div>
 
 </body>
 </html>
