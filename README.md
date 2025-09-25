@@ -17,6 +17,7 @@ Ele utiliza algumas técnicas importantes:
 ---
 
 ## Estrutura de Pastas
+
 Atividade_18-09/
 ├─ config/ # Arquivos de configuração (paths, sessão);
 ├─ pages/ # Páginas do sistema (login, dashboard, cadastro, edição);
@@ -32,6 +33,7 @@ Atividade_18-09/
 ---
 
 ## Tecnologias Utilizadas
+
 - XAMPP servidor Apache;
 - PHP 7.x ou superior;
 - SQL (MySQL);
@@ -42,6 +44,7 @@ Atividade_18-09/
 ---
 
 ## Instalação e Execução
+
 1. Clone este repositório:
 ```bash
 git clone <URL_DO_REPOSITORIO>
@@ -66,6 +69,7 @@ http://localhost/Atividade_18-09/
 ---
 
 ## Observações
+
 - Não é necessário subir node_modules para o Git (veja .gitignore).
 - O arquivo output.css é gerado automaticamente pelo Tailwind.
 - Este projeto é uma atividade acadêmica e não deve ser usado em produção sem ajustes de segurança.
@@ -73,5 +77,6 @@ http://localhost/Atividade_18-09/
 ---
 
 ## Contato/Autor
+
 - Projeto desenvolvido por Pedro Perrenoud como atividade de faculdade;
 
