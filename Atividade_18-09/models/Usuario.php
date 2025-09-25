@@ -1,5 +1,6 @@
 <?php
   require_once __DIR__ .  '/../Conexao.php';
+  require_once __DIR__ . '/../config/session.php';
 
   class Usuario{
     private $id;

@@ -1,3 +1,8 @@
+<?php
+    require_once __DIR__ . '/../config/session.php';
+    require_once __DIR__ . '/../config/configPaths.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,7 +13,7 @@
 
     <h1>Editar Funcionário</h1>
     
-    <form action="/PHP/Atividade_18-09/index.php?controller=funcionario&action=atualizar" method="POST">
+    <form action="<?= ROOT_PATH ?>index.php?controller=funcionario&action=atualizar" method="POST">
         <input type="hidden" name="id" value="<?php echo htmlspecialchars($funcionario->getId()); ?>">
         
         <label for="nome">Nome:</label><br>
@@ -21,7 +26,7 @@
         <input type="number" id="salario" name="salario" value="<?php echo htmlspecialchars($funcionario->getSalario()); ?>" required><br><br>
         
         <button type="submit">Salvar Alterações</button>
-        <a href="index.php?controller=funcionario&action=listar">Cancelar</a>
+        <a href="<?= ROOT_PATH ?>index.php?controller=funcionario&action=listar">Cancelar</a>
     </form>
 
 </body>

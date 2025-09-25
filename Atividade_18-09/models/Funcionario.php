@@ -1,5 +1,6 @@
 <?php
   require_once __DIR__ . '/../Conexao.php';
+  require_once __DIR__ . '/../config/session.php';
 
   class Funcionario{
     private $id;
@@ -40,11 +41,11 @@
     }
 
     public function atualizar() : bool {
+      $db = Conexao::getConexao();
+      $sql_update = "UPDATE funcionarios SET nome = :nome, cargo = :cargo, salario = :salario WHERE id = :id";
       
       try{
-        $sql_update = "UPDATE funcionarios SET nome = :nome, cargo = :cargo, salario = :salario WHERE id = :id";
-
-        $stmt_update = $this->db->prepare($sql_update);
+        $stmt_update = $db->prepare($sql_update);
         $stmt_update->bindValue(':id', $this->id );
         $stmt_update->bindValue(':nome', $this->nome );
         $stmt_update->bindValue(':cargo', $this->cargo );

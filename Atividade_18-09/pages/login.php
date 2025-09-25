@@ -1,4 +1,12 @@
+<?php
+  require_once __DIR__ . '/../config/session.php';
 
+  if(isset($_SESSION['user'])){
+    echo "<script> console.log(".json_encode($_SESSION['user']).")</script>";
+  } else{
+    echo "<script>console.log(" . json_encode("Sessão não iniciada").")</script>";
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

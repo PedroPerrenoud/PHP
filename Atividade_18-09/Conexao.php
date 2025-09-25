@@ -3,7 +3,7 @@
     private static $host = 'localhost';
     private static $database = 'empresa_tech';
     private static $user = 'root';
-    private static $passwrod = 'aluno';
+    private static $passwrod = '';
 
     public static function getConexao(){
       try{

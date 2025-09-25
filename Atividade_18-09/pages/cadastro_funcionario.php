@@ -1,3 +1,8 @@
+<?php
+    require_once __DIR__ . '/../config/session.php';
+    require_once __DIR__ . '/../config/configPaths.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,7 +13,7 @@
 
     <h1>Cadastrar Novo Funcionário</h1>
     
-    <form action="/PHP_Activities/Atividade_18-09/index.php?controller=funcionario&action=salvar" method="POST">
+    <form action="<?= ROOT_PATH ?>index.php?controller=funcionario&action=salvar" method="POST">
         <label for="nome">Nome:</label><br>
         <input type="text" id="nome" name="nome" required><br><br>
 

@@ -1,6 +1,9 @@
 <?php
-  require_once __DIR__ . '/../controllers/session_verify.php';
+  require_once __DIR__ . '/../config/session.php';
+  require_once __DIR__ . '/../config/configPaths.php';
   require_once __DIR__ . '/../models/Funcionario.php';
+  
+
   $funcionarios = Funcionario::buscarTodos();
   //Verifica a existência de mensagens
   if( isset($_SESSION['mensagem'])){
@@ -38,7 +41,7 @@
 <body>
   <h1>Gestão de Funcionários</h1>
 
-    <a href="../index.php?controller=funcionario&action=cadastrar" class="cadastrar-btn">Cadastrar Novo Funcionário</a>
+    <a href="<?= ROOT_PATH ?>/index.php?controller=funcionario&action=cadastrar" class="cadastrar-btn">Cadastrar Novo Funcionário</a>
 
     <table>
       <thead>
@@ -63,8 +66,8 @@
                   echo "<td>R$" . htmlspecialchars(number_format($funcionario->getSalario(), 2, ',', '.')) . "</td>";
                   echo "<td class='acoes'>";
                   // Botões de ação, que apontam para os endpoints do seu controlador
-                  echo "<a href='../index.php?controller=funcionario&action=editar&id=" . $funcionario->getId() . "' class='editar'>Editar</a>";
-                  echo "<a href='../index.php?controller=funcionario&action=excluir&id=" . $funcionario->getId() . "' class='excluir' onclick='return confirm(\"Tem certeza que deseja excluir?\");'>Excluir</a>";
+                  echo "<a href='".ROOT_PATH."index.php?controller=funcionario&action=editar&id=" . $funcionario->getId() . "' class='editar'>Editar</a>";
+                  echo "<a href='".ROOT_PATH."index.php?controller=funcionario&action=excluir&id=" . $funcionario->getId() . "' class='excluir' onclick='return confirm(\"Tem certeza que deseja excluir?\");'>Excluir</a>";
                   echo "</td>";
                   echo "</tr>";
               }
