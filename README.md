@@ -1,50 +1,77 @@
-O problema é o seguinte: Todas as vezes que utilizo uma funcionalidade (Cadastrar, Editar ou Excluir) o projeto realiza a ação e volta para a página de Login.
-Colocando alguns logs:
-/pages/login.php
-  <?php if(isset($_SESSION['user'])){echo "<script>console.log(" . json_encode($_SESSION['user']) . ");</script>";} else{ echo "<script>console.log(" . json_encode("Nenhuma Session iniciada") . ");</script>";} ?>
-    Retorna 'Nenhuma Session iniciada';
-  <?php if(isset($_GET['controller'])){ echo "<script>console.log(" . json_encode($_GET['controller']) . ");</script>";} else{ echo "<script>console.log(" . json_encode("Nenhuma Session iniciada") . ");</script>"; } ?>
-    Retorna 'Nenhum controller definido';
+# Sistema de Gestão de Funcionários em PHP
 
-'Nenhuma Session iniciada': Esperado, é a primeira sessão quando o projeto é executado
-'Nenhum controller definido': Estranho, pois logo quando o index.php é executado, temos:
-  <?php
-    [...Requires...]
-    //2. Lê o endpoint da URL 
-    $controller = $_GET['controller'] ?? 'user'; // Se controller vazio, usa 'user';
-    $action = $_GET['action'] ?? 'login';    // Se action vazio, usa 'login';
-    $controller_class = ucfirst($controller) . 'Controller';
+Este é um projeto acadêmico desenvolvido como atividade de faculdade para praticar **funções, classes e POO** em PHP, integrando **SQL** para persistência de dados.
 
-Mesmo sendo a primeira passada do programa, os valores padrões de 'user' e 'login' deveriam ser apresentados.
-Inserindo informações de Login, somos enviados para a Dashboard. Na Dashboard há uma mensagem no console revelando se existe uma Session:
-  if(isset($_SESSION['user'])){echo "<script>console.log(" . json_encode($_SESSION['user']) . ");</script>";}else{ echo "<script>console.log(" . json_encode("Nenhuma Session Cadastrada") . ");</script>"; } 
-    Retorna 'Nenhuma Session Cadastrada'
+O sistema permite:
+- Fazer login com uma conta de usuário.
+- Criar um novo funcionário.
+- Editar dados de um funcionário existente.
+- Excluir um funcionário.
+- Desconectar-se do sistema (logout).
 
-COMO RESOLVER O ERRO: A forma como o cadastro de sessão está sendo feito não é suficiente para armazenar no projeto, em algum lugar ele deixa de existir.
-    
-  Com a funcionalidade de Cadastrar: 
-    Session parece estar funcionando, mesmo não sabendo de onde ela surge no console => Object email:"josesinho@email.com" id:3;
-    Ao clicar em salvar:
-      'Não é possível aceder a este site
-       A página Web em http://localhost/PHP/Atividade_18-09/index.php?controller=funcionario&action=salvar poderá estar temporariamente inactiva ou poderá ter sido movida permanentemente para um novo endereço Web.
-       ERR_UNSAFE_REDIRECT'
-       Por mais que seja direcionaodp para este erro, a criação de um novo funcionário funciona;
+Ele utiliza algumas técnicas importantes:
+- **Roteamento** através do arquivo `index.php`.
+- **Configuração de rotas** definidas no projeto.
+- **Arquitetura de pastas organizada** para separar lógica, páginas e recursos (ex.: CSS, JS).
 
+---
 
-Adicionado ao UserController:
-if( $usuario ){
-        // A verificação da senha é feita aqui
-        if( $senha == $usuario->getSenha() ){
-          $_SESSION['user'] = [
-            'id' => $usuario->getId(),
-            'email'=> $usuario->getEmail()
-          ];
+## Estrutura de Pastas
+Atividade_18-09/
+├─ config/ # Arquivos de configuração (paths, sessão);
+├─ pages/ # Páginas do sistema (login, dashboard, cadastro, edição);
+├─ src/ # CSS, incluindo input.css e output.css do Tailwind;
+├─ models/ # Onde são armazenados os modelos de classe;
+├─ controllers/ # Controle de funções e manipulação de dados;
+├─ db/ # Configuração do banco de dados;
+├─ tests/ # Uma pasta de testes para algumas funcionalidades ou rotas;
+├─ index.php # Roteador principal;
+├─ tailwind.config.js;
+├─ postcss.config.js;
+└─ README.md;
+---
 
-          header("Location: pages/dashboard.php");
-          exit();
-        }else{ //ADICIONADO PARA TRATAMENTO DE ERROS
-          $_SESSION['login_error'] = 'Senha incorreta!';
-          header("Location: pages/login.php?error=wrong_password");
-          exit();
-        }
-      }
+## Tecnologias Utilizadas
+- XAMPP servidor Apache;
+- PHP 7.x ou superior;
+- SQL (MySQL);
+- Tailwind CSS;
+- Node.js (para compilar Tailwind);
+- Git (controle de versão);
+
+---
+
+## Instalação e Execução
+1. Clone este repositório:
+```bash
+git clone <URL_DO_REPOSITORIO>
+```
+2. Acesse a pasta do projeto
+```bash
+cd Atividade_18-09
+```
+3. Instale as dependências do Tailwind
+```bash
+npm install
+```
+4. Compile o CSS do tailwind (modo Watch para desenvolvimento)
+```bash
+npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+```
+5. Abra o projeto no XAMPP ou outro servidor local, acessando:
+```bash
+http://localhost/Atividade_18-09/
+```
+
+---
+
+## Observações
+- Não é necessário subir node_modules para o Git (veja .gitignore).
+- O arquivo output.css é gerado automaticamente pelo Tailwind.
+- Este projeto é uma atividade acadêmica e não deve ser usado em produção sem ajustes de segurança.
+
+---
+
+## Contato/Autor
+- Projeto desenvolvido por Pedro Perrenoud como atividade de faculdade;
+
