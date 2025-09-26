@@ -1,82 +1,81 @@
-# Sistema de Gestão de Funcionários em PHP
+# 📚 Repositório de Atividades Acadêmicas em PHP
 
-Este é um projeto acadêmico desenvolvido como atividade de faculdade para praticar **funções, classes e POO** em PHP, integrando **SQL** para persistência de dados.
+## ✨ Visão Geral
 
-O sistema permite:
-- Fazer login com uma conta de usuário.
-- Criar um novo funcionário.
-- Editar dados de um funcionário existente.
-- Excluir um funcionário.
-- Desconectar-se do sistema (logout).
+Este repositório serve como meu portfólio de atividades e projetos práticos desenvolvidos durante o curso de **[Análise e Desenvolvimento de Sistemas / Programação Web**, focados na linguagem **PHP** e suas diversas implementações.
 
-Ele utiliza algumas técnicas importantes:
-- **Roteamento** através do arquivo `index.php`.
-- **Configuração de rotas** definidas no projeto.
-- **Arquitetura de pastas organizada** para separar lógica, páginas e recursos (ex.: CSS, JS).
+Aqui, serão encontradas soluções para atividades, projetos de estudo de caso e implementações de lógica de negócio, seguindo as melhores práticas de desenvolvimento com a arquitetura e padrões aprendidos em sala.
 
----
+-----
 
-## Estrutura de Pastas
+## 🎯 Objetivo
 
-Atividade_18-09/
-├─ config/ # Arquivos de configuração (paths, sessão);
-├─ pages/ # Páginas do sistema (login, dashboard, cadastro, edição);
-├─ src/ # CSS, incluindo input.css e output.css do Tailwind;
-├─ models/ # Onde são armazenados os modelos de classe;
-├─ controllers/ # Controle de funções e manipulação de dados;
-├─ db/ # Configuração do banco de dados;
-├─ tests/ # Uma pasta de testes para algumas funcionalidades ou rotas;
-├─ index.php # Roteador principal;
-├─ tailwind.config.js;
-├─ postcss.config.js;
-└─ README.md;
----
+O objetivo principal desta pasta é:
 
-## Tecnologias Utilizadas
+  * **Organizar** e **Documentar** todo o código produzido nas disciplinas de desenvolvimento.
+  * **Acompanhar** a evolução do meu aprendizado em PHP.
+  * Servir como um **guia prático** para consultas futuras sobre a sintaxe e funcionalidades da linguagem.
+  * Demonstrar a aplicação de conceitos como Orientação a Objetos (POO), tratamento de dados e integração com ferramentas front-end (como o Tailwind CSS).
 
-- XAMPP servidor Apache;
-- PHP 7.x ou superior;
-- SQL (MySQL);
-- Tailwind CSS;
-- Node.js (para compilar Tailwind);
-- Git (controle de versão);
+-----
 
----
+## 🛠️ Tecnologias Utilizadas
 
-## Instalação e Execução
+Os projetos contidos neste repositório utilizam, primariamente, o seguinte *stack*:
 
-1. Clone este repositório:
-```bash
-git clone <URL_DO_REPOSITORIO>
+| Tecnologia | Descrição |
+| :--- | :--- |
+| **PHP** | Linguagem principal de desenvolvimento (*Backend Logic*). |
+| **Tailwind CSS** | Framework CSS utilitário para estilização e prototipagem rápida (*Frontend Styling*). |
+| **POO** | Implementação de classes, *getters/setters* e encapsulamento em todas as soluções. |
+| **Sessões (`$_SESSION`)** | Gestão de estado entre requisições (mensagens de *status*, etc.). |
+| **Lógica de Módulo** | Separação de responsabilidades (Model, Controller, View, como visto no último projeto). |
+
+-----
+
+## 📁 Estrutura da Pasta
+
+Cada atividade é organizada em subpastas com nomes descritivos.
+
 ```
-2. Acesse a pasta do projeto
-```bash
-cd Atividade_18-09
-```
-3. Instale as dependências do Tailwind
-```bash
-npm install
-```
-4. Compile o CSS do tailwind (modo Watch para desenvolvimento)
-```bash
-npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
-```
-5. Abra o projeto no XAMPP ou outro servidor local, acessando:
-```bash
-http://localhost/Atividade_18-09/
+PHP/
+├── Atividade_18-09/
+│   ├── index.php         
+│   ├── Conexao.php/      # PDO conexão banco;
+│   ├── db/               # Arquivo sql do banco de dados;
+│   ├── pages/            # View (Frontend);
+│   ├── models/           # Model - Classes de modelo (Backend);
+│   ├── controllers/      # Controller - Classes de controle (Backend);
+│   ├── config/           # Configurações do sistema;
+│   ├── src/              # CSS (Tailwind);
+│   └── tests/            # Testes isolados feitos manualmente;
+│
+├── CodigoBarras/
+│   ├── index.php         # View (Frontend)
+│   ├── model_controller/ # Lógica de Backend
+│   └── src/              # CSS (Tailwind)
+│
+├── [Atividade-03]/
+└── README.md
 ```
 
----
+-----
 
-## Observações
+## 🚀 Como Executar os Projetos
 
-- Não é necessário subir node_modules para o Git (veja .gitignore).
-- O arquivo output.css é gerado automaticamente pelo Tailwind.
-- Este projeto é uma atividade acadêmica e não deve ser usado em produção sem ajustes de segurança.
+Para rodar qualquer um dos projetos PHP localmente, você precisará de um ambiente de servidor local:
 
----
+1.  **Clone o Repositório:**
+    ```bash
+    git clone https://www.youtube.com/shorts/apr341idq8U
+    ```
+2.  **Configurar o Servidor:** Use um ambiente como **XAMPP**, **WAMP** ou **Laragon**.
+3.  **Acesse:** Coloque o repositório na pasta raiz do seu servidor (`htdocs` ou `www`),
+4.  **Navegue:** Acesse o projeto pelo navegador (ex: `http://localhost/PHP/CodigoBarras/index.php`),
+5.  **Extra:** Note que cada projeto pode ter sua própria forma de execução, leia o README.md de cada um.
 
-## Contato/Autor
+-----
 
-- Projeto desenvolvido por Pedro Perrenoud como atividade de faculdade;
-
+\<p align="center"\>
+Filh0 de Odh1nn 🐦‍⬛
+\</p\>
